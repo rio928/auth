@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
 
         if @user
             if BCrypt::Password.new(@user.password) == entered_password
+                session["user_id"] = @user.id
                 flash[:notice] = "Welcome!"
                 redirect_to "/companies"
             else

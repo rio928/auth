@@ -1,11 +1,12 @@
 <h1>Do the TODOs</h1>
 
-<%= form_with model: @task do |form| %>
+<% if @current_user %>
+ <%= form_with model: @task do |form| %> 
   <%= form.text_field "description" %>
   <%= form.submit "Add new task" %>
-<% end %>
+ <% end %>
 
-<table>
+ <table>
   <% for task in @tasks %>
     <tr>
       <td>
@@ -16,4 +17,5 @@
       </td>
     </tr>
   <% end %>
+<% end %>
 </table>
